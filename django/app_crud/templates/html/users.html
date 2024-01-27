@@ -1,0 +1,39 @@
+{% extends "html/base.html" %}
+
+
+{% block content %}
+<main class="flex flex-col justify-center items-center space-y-96">
+    <section class="flex justify-center items-center h-64 w-full">
+        <div class="w-full max-w-7xl">
+            <table class="min-w-full bg-white border border-gray-300 rounded-md overflow-hidden">
+                <thead class="bg-gray-800 text-white w-full">
+                    <tr>
+                        <th class="py-2 px-4 border-b">First Name</th>
+                        <th class="py-2 px-4 border-b">Last Name</th>
+                        <th class="py-2 px-4 border-b">Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr class="transition-all hover:bg-gray-100 hover:shadow-md">
+                        <td class="py-2 px-4 border-b">{{ user.id }}</td>
+                        <td class="py-2 px-4 border-b">{{ user.first_name }}</td>
+                        <td class="py-2 px-4 border-b">{{ user.last_name }}</td>
+                        <td class="py-2 px-4 border-b">{{ user.age }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot class="bg-gray-800 text-white">
+                    <tr>
+                        <td class="py-2 px-4">Total</td>
+                        <td class="py-2 px-4"></td>
+                        <td class="py-2 px-4"></td>
+                        <td class="py-2 px-4">{{ totalAge }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

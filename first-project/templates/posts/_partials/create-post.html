@@ -1,0 +1,22 @@
+<div class="bg-white rounded-lg shadow-lg overflow-hidden w-full mx-auto mt-10" hx-target="this" hx-swap="outerHTML">
+    <div class="px-4 py-5 sm:p-6">
+        <form class="w-full max-w-lg space-y-3">
+            <input
+                class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+                type="text"  name="title" placeholder="Type a title" />
+            <input type="text"  name="content" placeholder="Type a content"
+                class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" />
+            <div>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit"
+                    hx-post="{{ url_for('create_post') }}">
+                    Submit
+                </button>
+                <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+                    hx-get="{{ url_for('show_post', post_id=post.id) }}"
+                >
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
