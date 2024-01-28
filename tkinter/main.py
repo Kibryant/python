@@ -9,6 +9,11 @@ class App:
         self.root.geometry("300x200")
         self.root.resizable(False, False)
         self.main_frame = ttk.Frame(self.root)
+        self.main_frame.pack(fill=tk.BOTH, expand=True)
+        self.label = ttk.Label(self.main_frame, text="Hello World!")
+        self.label.pack(padx=20, pady=20)
+        self.button = ttk.Button(self.main_frame, text="Click Me!", command=self.click)
+        self.button.pack(padx=20, pady=20)
 
         self.root.mainloop()
 
