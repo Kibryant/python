@@ -15,3 +15,14 @@ def merge_sort(arr):
     left = merge_sort(arr[:mid])
     right = merge_sort(arr[mid:])
     return merge(left, right)
+
+
+if __name__ == "__main__":
+    array = [12, 11, 14, 5, 6, 7, 8, 1, 2, 10]
+
+    print("Given array is", end="\n")
+    print(array)
+
+    sorted_array = merge_sort(array)
+    print("Sorted array is: ", end="\n")
+    print(sorted_array)
