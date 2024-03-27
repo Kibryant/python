@@ -1,6 +1,6 @@
 from domain.wallet.wallet_repository import WalletRepository
 
-class WalletRepositoryMock():
+class WalletRepositoryMock(WalletRepository):
     def __init__(self):
         self.wallets = {}
     

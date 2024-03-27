@@ -13,7 +13,7 @@ class Wallet:
     password: str
     created_at: datetime
 
-    def __init__(self, id: str, full_name: str, cpf: str, email: str, phone: str, balance: float, password: str, created_at: str):
+    def __init__(self, id: str, full_name: str, cpf: str, email: str, phone: str, balance: float, password: str, created_at: datetime):
         self.id = id
         self.full_name = full_name
         self.cpf = format_cpf(cpf)

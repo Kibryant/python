@@ -1,10 +1,12 @@
 from datetime import datetime
+from domain import Wallet, Transaction, TransactionService
 from wallet_repository_mock import WalletRepositoryMock
-from domain.wallet.wallet import Wallet
+from transaction_repository_mock import TransactionRepositoryMock
 
-
-def main():
+def main(): 
     wallet_repository = WalletRepositoryMock()
+    transaction_repository = TransactionRepositoryMock()
+    transaction_service = TransactionService(transaction_repository=transaction_repository, wallet_repository=wallet_repository)
 
     arthur_wallet = Wallet(
         id='1',
@@ -16,6 +18,7 @@ def main():
         password='123456',
         created_at=datetime.now()
     )
+
     luana_wallet = Wallet(
         id='2',
         full_name='Luana',
@@ -27,10 +30,24 @@ def main():
         created_at=datetime.now()
     )
 
-    luana = wallet_repository.create(wallet=luana_wallet)
-    arthur = wallet_repository.create(wallet=arthur_wallet)
+    transaction = Transaction(
+        id='1',
+        payee_id=arthur_wallet.id,
+        payer_id=luana_wallet.id,
+        value=100.0,
+        created_at=datetime.now()
+    )
+
+    wallet_repository.create(wallet=luana_wallet)
+    wallet_repository.create(wallet=arthur_wallet)
+
+    transaction_service.create(transaction=transaction)
+
+    arthur = wallet_repository.find_by_id('1')
+    luana = wallet_repository.find_by_id('2')
 
     print(arthur)
+    print(luana)
 
 
 if __name__ == '__main__':

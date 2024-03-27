@@ -1,2 +1,2 @@
-from .wallet.wallet import Wallet
-from .transaction.transaction import Transaction
+from .wallet import Wallet, WalletRepository, WalletService, WalletType
+from .transaction import Transaction, TransactionRepository, TransactionService

@@ -11,9 +11,6 @@ class TransactionService:
         if transaction.value <= 0:
             raise ValueError('Transaction value must be greater than zero')
 
-        if transaction.payer_wallet_id == transaction.payee_wallet_id:
-            raise ValueError('Payer and payee wallets cannot be the same')
-
         payer_wallet = self.wallet_repository.find_by_id(transaction.payer_id)
         payee_wallet = self.wallet_repository.find_by_id(transaction.payee_id)
 
