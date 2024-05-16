@@ -3,16 +3,21 @@ from domain import Wallet, Transaction, TransactionService
 from wallet_repository_mock import WalletRepositoryMock
 from transaction_repository_mock import TransactionRepositoryMock
 
-def main(): 
+
+def main():
     wallet_repository = WalletRepositoryMock()
     transaction_repository = TransactionRepositoryMock()
-    transaction_service = TransactionService(transaction_repository=transaction_repository, wallet_repository=wallet_repository)
+
+    transaction_service = TransactionService(
+        transaction_repository=transaction_repository,
+        wallet_repository=wallet_repository
+    )
 
     arthur_wallet = Wallet(
         id='1',
         full_name='Arthur',
         cpf='12345678901',
-        email="arthurgustavon@gmail.com",
+        email="arthur@gmail.com",
         phone='12345678901',
         balance=1000.0,
         password='123456',

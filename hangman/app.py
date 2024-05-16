@@ -3,7 +3,8 @@ from tkinter import messagebox
 from typing import List
 import random
 
-WORDS = ["python", "java", "javascript", "ruby", "data", "science", "hangman", "youtube", "zig", "computer", "typescript"]
+WORDS = ["python", "java", "javascript", "ruby", "data", "science", "hangman", "youtube", "zig", "computer", "typescript", "zig", "cobol"]
+
 
 class HangmanGame:
     def __init__(self, word_list: List[str]):
@@ -27,6 +28,7 @@ class HangmanGame:
 
     def get_hidden_word(self) -> str:
         return " ".join(self.guessed_word)
+
 
 class HangmanGUI:
     def __init__(self, game: HangmanGame):
@@ -95,10 +97,12 @@ class HangmanGUI:
         self.label.config(text=self.game.get_hidden_word())
         self.window.mainloop()
 
+
 def main():
     game = HangmanGame(WORDS)
     gui = HangmanGUI(game)
     gui.start()
+
 
 if __name__ == "__main__":
     main()
